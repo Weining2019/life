@@ -39,6 +39,10 @@ pub extern "C" fn app_main() -> i64 {
     let a: i64 = 613676879;
     let b: i64 = 895640371;
 
+    for _x in 0..100 {
+            let (mut _r1, mut _r2) = pollard_rho_factor_i64(a * b);
+    }
+
     let (mut r1, mut r2) = pollard_rho_factor_i64(a * b);
     if r1 > r2 {
         let t = r1;
@@ -46,4 +50,8 @@ pub extern "C" fn app_main() -> i64 {
         r2 = t;
     }
     (r1 << 32) | r2
+}
+
+pub fn main() {
+    println!("pollard: {}", app_main());
 }

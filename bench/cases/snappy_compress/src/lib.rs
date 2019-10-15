@@ -11,3 +11,7 @@ pub extern "C" fn app_main() -> i32 {
     }
     total_len
 }
+
+pub fn main() {
+    println!("snappy: {}", app_main());
+}

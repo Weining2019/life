@@ -9,5 +9,9 @@ pub extern "C" fn fib(n: i32) -> i32 {
 
 #[no_mangle]
 pub extern "C" fn app_main() -> i32 {
-	fib(35)
+	fib(44)
+}
+
+pub fn main() {
+    println!("fib: {}", app_main());
 }

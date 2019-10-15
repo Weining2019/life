@@ -1,0 +1,21 @@
+
+To build out .wasm files:
+./build_all.sh
+
+To build out native executable:
+cd fib_recursive/src
+rustc -o snappy_native lib.rs -C opt-level=3
+
+Note:
+snappy_compress depends on 'snap' crate
+cd snappy_compress/src
+rustc -o snappy_native lib.rs -C opt-level=3 -L ../target/x86_64-unknown-linux-gnu/release/deps/
+
+(
+How to generate ../target/x86_64-unknown-linux-gnu dir:
+
+modify <life_dir>/bench/cases/.cargo/config:
+change target from "wasm32-unknown-unknown" to "x86_64-unknown-linux-gnu", and then
+call build_all.sh to generate target/x86_64-unknown-linux-gnu dir"
+)
+
